@@ -34,11 +34,9 @@ class DeliveryTest {
         $("[data-test-id=phone] input").setValue(validUser.getPhone());
         $("[data-test-id=agreement]").click();
         $("button.button").click();
-        Thread.sleep(5000);
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
         $("[data-test-id=date] input").setValue(secondMeetingDate);
         $("button.button").click();
-        Thread.sleep(5000);
         $("[data-test-id=replan-notification] .notification__content").shouldBe(Condition.visible, Duration.ofSeconds(15))
                 .shouldHave(Condition.ownText("У вас уже запланирована встреча на другую дату. Перепланировать? "));
         $("[data-test-id=replan-notification] .notification__content button.button").click();
